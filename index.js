@@ -1,6 +1,7 @@
 // require important modules
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 // require routes
 // const AdminRouter = require('./routes/admin')
@@ -28,9 +29,9 @@ const db = require('./config/database')
 
 
 // Home Page
-app.get('/', (req,res) => {
-    res.send('hello')
-  })
+// app.get('/', (req,res) => {
+//     res.send('hello')
+//   })
 
 
 // REGISTER OUR ROUTES -------------------------------
