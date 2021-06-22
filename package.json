@@ -4,7 +4,7 @@
   "description": "Produits artisanaux  store",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "starts": "nodemon"
   },
   "repository": {
     "type": "git",
