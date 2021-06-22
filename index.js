@@ -13,7 +13,7 @@ const bodyParser = require('body-parser')
 
 // create our App
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 
 
 // configure app to use bodyParser()
@@ -43,6 +43,7 @@ app.get('/', (req,res) => {
 
 
 
+
 // Testing the connection
 db
   .authenticate()
@@ -53,6 +54,5 @@ db
     console.error("Unable to connect to the database:", err)
   })
 
-
 // START THE SERVER
-app.listen(port, () => console.log(`server run on port ${port}`))
+app.listen(port, () => console.log(`server running on port ${port}`))
