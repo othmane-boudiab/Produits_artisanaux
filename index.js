@@ -29,7 +29,7 @@ const db = require('./config/database')
 
 // Home Page
 app.get('/', (req,res) => {
-    res.send('hello')
+    res.send('hello hajar')
   })
 
 
