@@ -1,16 +1,18 @@
+const { DataTypes } = require("sequelize"); 
 
-const category = db.define('categort',{
+
+const category = connection.define('categort',{
     id_category:{
-        type:sequelize.INTEGER,
+        type:DataTypes.INTEGER,
         autoIncrement:true,
         primaryKey:true
     },
     Name_category:{
-        type:sequelize.STRING,
+        type:DataTypes.STRING,
         allowNull:false
     },
     status_category:{
-        type:sequelize.STRING,
+        type:DataTypes.BOOLEAN,
         allowNull:false
     }
 })
