@@ -19,8 +19,8 @@ const admin = connection.define('admin', {
             type:sequelize.STRING,
             allowNull: false
         }
-    });
+    })
 
-module.exports = admin;
+module.exports = admin
 
   
