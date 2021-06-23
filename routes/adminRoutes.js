@@ -6,7 +6,7 @@ const {adminModel} = require('../Models')
 router
     .route('/admin')
         .get((req,res) => {
-            admin.findAll().then(admin => {
+            adminModel.findAll().then(admin => {
                 res.json(admin)
             })
         })
