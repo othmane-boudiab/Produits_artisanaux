@@ -5,6 +5,7 @@ const express = require('express')
 // require the connection (DB)
 const db = require('./config/database')
 const sequelize = require ('sequelize')
+const model= require ('./Models/index')
 // const cors = require('cors')
 
 // require routes
@@ -31,7 +32,7 @@ const port = process.env.PORT || 5000
 
 // Home Page
 app.get('/', (req,res) => {
-    res.send('hello hajar')
+    res.send('hello ')
   })
 
 
