@@ -25,13 +25,14 @@ app.use(bodyParser.json())
 
 // require the connection (DB)
 const db = require('./config/database')
+const Sequelize  = require('sequelize')
 
 
 
 // Home Page
-// app.get('/', (req,res) => {
-//     res.send('hello')
-//   })
+app.get('/', (req,res) => {
+    res.send('hello')
+  })
 
 
 // REGISTER OUR ROUTES -------------------------------
@@ -57,3 +58,4 @@ db
 
 // START THE SERVER
 app.listen(port, () => console.log(`server run on port ${port}`))
+// Sequelize.models.AdminModel

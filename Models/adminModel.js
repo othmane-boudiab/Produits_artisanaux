@@ -1,3 +1,5 @@
+const sequelize = require('sequelize')
+const connection = require('../config/database')
 const admin = connection.define('admin', {
         id_Admin :{ 
             type: sequelize.INTEGER,
@@ -23,4 +25,3 @@ const admin = connection.define('admin', {
 
 module.exports = admin
 
-  
