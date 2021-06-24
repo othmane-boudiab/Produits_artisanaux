@@ -1,4 +1,4 @@
-const connection = require("../config/database")
+const db = require("../config/database")
 const sequelize =  require("sequelize")
 // require models
 const M_Product = require("./productModel")

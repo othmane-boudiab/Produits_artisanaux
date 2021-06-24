@@ -1,10 +1,14 @@
 // require important modules
+require('dotenv').config()
 const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
+// const bodyParser = require('body-parser')
+// require the connection (DB)
+const db = require('./config/database')
+const sequelize = require ('sequelize')
+// const cors = require('cors')
 
 // require routes
-const AdminRouter = require('./routes/adminRoutes')
+// const AdminRouter = require('./routes/adminRoutes')
 // const categoriesRouter = require('./routes/catégories')
 // const ProductRouter = require('./routes/products')
 // const ClientRouter = require('./routes/client')
@@ -14,17 +18,14 @@ const AdminRouter = require('./routes/adminRoutes')
 
 // create our App
 const app = express()
-const port = process.env.PORT || 2020
+const port = process.env.PORT || 5000
 
+// console.log(process.env.PORT)
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
-
-
-// require the connection (DB)
-const db = require('./config/database')
+// app.use(bodyParser.urlencoded({extended: true}))
+// app.use(bodyParser.json())
 
 
 
@@ -36,7 +37,7 @@ app.get('/', (req,res) => {
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api/v1/
-app.use('/api/v1/', AdminRouter)
+// app.use('/api/v1/', AdminRouter)
 // app.use('/api/v1/', categoriesRouter)
 // app.use('/api/v1/', ClientRouter)
 // app.use('/api/v1/', ProductRouter) // /api/v1/product
