@@ -23,7 +23,7 @@ app.use(bodyParser.json())
 
 
 // require the connection (DB)
-const db = require('./config/database')
+const db = require('./config/database.js')
 
 
 
