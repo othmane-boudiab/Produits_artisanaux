@@ -1,3 +1,5 @@
+const connection = require("../config/database")
+const sequelize =  require("sequelize")
 
 const product = connection.define('product',{
     id:{

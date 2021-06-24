@@ -1,3 +1,6 @@
+const connection = require("../config/database")
+const sequelize =  require("sequelize")
+
 const client = connection.define('client',{
         id:{
             type: sequelize.INTEGER,
@@ -25,3 +28,5 @@ const client = connection.define('client',{
     )
 
 module.exports= client;
+
+// console.log(client === sequelize.models.client)

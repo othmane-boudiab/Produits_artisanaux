@@ -1,3 +1,6 @@
+const connection = require("../config/database")
+const sequelize =  require("sequelize")
+
 const admin = connection.define('admin', {
         id_Admin :{ 
             type: sequelize.INTEGER,
@@ -15,11 +18,11 @@ const admin = connection.define('admin', {
             allowNull: false,
             isEmail: true,
         },
-        passeword:{
+        password:{
             type:sequelize.STRING,
             allowNull: false
         }
-    });
+    }, {tableName: 'admin', timestamps: false, underscored: true});
 
 module.exports = admin;
 

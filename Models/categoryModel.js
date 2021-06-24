@@ -1,7 +1,10 @@
+const connection = require("../config/database")
+// const sequelize =  require("sequelize")
+
 const { DataTypes } = require("sequelize"); 
 
 
-const category = connection.define('categort',{
+const category = connection.define('category',{
     id_category:{
         type:DataTypes.INTEGER,
         autoIncrement:true,
@@ -15,6 +18,6 @@ const category = connection.define('categort',{
         type:DataTypes.BOOLEAN,
         allowNull:false
     }
-})
+}, {tableName: 'category', timestamps: false, underscored: true})
  
 module.exports = category

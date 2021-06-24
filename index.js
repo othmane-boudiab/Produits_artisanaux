@@ -57,3 +57,5 @@ db
 
 // START THE SERVER
 app.listen(port, () => console.log(`server running on port ${port}`))
+// const client = require("./Models/clientModel")
+// console.log(client === sequelize.models.client)
