@@ -2,8 +2,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
+
 // require routes
-// const AdminRouter = require('./routes/admin')
+const AdminRouter = require('./routes/adminRoutes')
 // const categoriesRouter = require('./routes/catégories')
 // const ProductRouter = require('./routes/products')
 // const ClientRouter = require('./routes/client')
@@ -13,7 +14,7 @@ const bodyParser = require('body-parser')
 
 // create our App
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 2020
 
 
 // configure app to use bodyParser()
@@ -29,17 +30,18 @@ const db = require('./config/database.js')
 
 // Home Page
 app.get('/', (req,res) => {
-    res.send('hello')
+    res.send('hello hajar')
   })
 
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api/v1/
-// app.use('/api/v1/', AdminRouter)
+app.use('/api/v1/', AdminRouter)
 // app.use('/api/v1/', categoriesRouter)
 // app.use('/api/v1/', ClientRouter)
 // app.use('/api/v1/', ProductRouter) // /api/v1/product
 // app.use('/api/v1/', CommentaireRouter)
+
 
 
 
@@ -53,6 +55,7 @@ db
     console.error("Unable to connect to the database:", err)
   })
 
-
 // START THE SERVER
-app.listen(port, () => console.log(`server run on port ${port}`))
+app.listen(port, () => console.log(`server running on port ${port}`))
+// const client = require("./Models/clientModel")
+// console.log(client === sequelize.models.client)
