@@ -7,3 +7,5 @@ in arrow function => dont yse {} ex: (req,res)=>res.send("hello")
 
 init midlware : app.use(), pour utiliser un midlware
 library moment, pour la date moment(),format()
+
+Instead of calling sync() for every model, you can call sequelize.sync() which will automatically sync all models.

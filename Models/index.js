@@ -1,15 +1,15 @@
 const connection = require("../config/database")
 const sequelize =  require("sequelize")
 // require models
-const product = require("./productModel")
-const client = require("./clientModel")
-const category =require("./categoryModel")
-const admin = require("./adminModel")
+const ModelProduct = require("./productModel");
+const ModelCategory =require("./categoryModel")
+const ModelClient = require("./clientModel")
+const ModelAdmin = require("./adminModel")
 
 
 
 // new tables
-const order = connection.define('order',{
+const Order = connection.define('order',{
     quantity:{
         type:sequelize.INTEGER,
         allowNull: false
@@ -19,7 +19,7 @@ const order = connection.define('order',{
         allowNull: false 
     } 
 }, {timestamps: false, underscored: true})  
-const comment = connection.define('comment',{
+const Comment = connection.define('comment',{
     content:{
     type:sequelize.TEXT,
     allowNull: false
@@ -32,20 +32,31 @@ date:{
 
 // ####### client &product(many to many)
 // to create order association:
-client.belongsToMany(product, {through:order})
-product.belongsToMany(client, {through:order})
+ModelClient.belongsToMany(ModelProduct, {through:Order})
+ModelProduct.belongsToMany(ModelClient, {through:Order})
 
 
 // to create comment association
-client.belongsToMany(product, {through:comment})
-product.belongsToMany(client, {through:comment})
+ModelClient.belongsToMany(ModelProduct, {through:Comment})
+ModelProduct.belongsToMany(ModelClient, {through:Comment})
 
 
 // relation between category and product (one->many)
-category.hasMany(product)
-product.belongsTo(category)
+ModelCategory.hasMany(ModelProduct)
+ModelProduct.belongsTo(ModelCategory)
 
 //
 
 
 connection.sync({force:false}).then(()=>{console.log("these tables had been created")}).catch((error)=>{console.log(error)})
+ 
+// Epicerie Sucrée Boissons Cosmétiques et bien être
+ModelProduct.create({name:"oil argan", image:"https://im0-tub-com.yandex.net/i?id=d4756625248412b6a89dc4fb04440321&n=13", price:100.34 , description:"Retrouver les moyens de paiements de vos achats en ligne. ... La sécurité des paiements avec l'e-Boutique repose sur le système de paiement de Maroc Télécommerce, certifié par le Centre Comment se fait le paiement à la livraison ?"})
+
+ModelProduct.findAll()
+.then(product => {
+    console.log(JSON.stringify(product));
+}).catch((error)=> {
+    //gestion erreur
+    console.log(error);
+});
