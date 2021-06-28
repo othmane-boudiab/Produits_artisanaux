@@ -11,7 +11,7 @@ const model= require ('./Models/index')
 // require routes
 // const AdminRouter = require('./routes/adminRoutes')
 // const categoriesRouter = require('./routes/catégories')
-// const ProductRouter = require('./routes/products')
+const ProductRouter = require('./routes/productRouter')
 // const ClientRouter = require('./routes/client')
 // const CommentaireRouter = require('./routes/commentaire')
 
