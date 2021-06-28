@@ -5,7 +5,7 @@ const {adminModel} = require('../Models/adminModel')
 
 
 
-// Admin page route.
+Admin page route.
 router
     .route('/admin')
         .get((req,res) => {

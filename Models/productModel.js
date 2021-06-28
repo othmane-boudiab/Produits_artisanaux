@@ -1,5 +1,6 @@
 const connection = require("../config/database")
-const sequelize =  require("sequelize")
+const sequelize =  require("sequelize");
+const { json } = require("body-parser");
 
 const product = connection.define('product',{
     id:{
@@ -27,3 +28,4 @@ const product = connection.define('product',{
 )
 
 module.exports= product;
+
