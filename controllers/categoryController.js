@@ -1,3 +1,5 @@
+
+const category = require('../Models/categoryModel');
 const M_category = require('../Models/categoryModel') 
 
 // display all categories
@@ -24,16 +26,49 @@ exports.category=function(req,res){
 
 // add a category 
 exports.Add_category=function(req,res){
+   const forme = req.params
 
-    let form = req.body;
-    M_category.create(form).
-        then((data) => {
-            res.json(data);
-        })
-        .catch((error) => {
-            console.log(("this is the error".error));
-        });
-
+   M_category.create(forme);
+   res.send(`hi, your category has name ${forme.Name_category} is add to database`)
+   .catch((error)=>{
+       console.log("this is the error".error)
+   })
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// add category
+// let form = req.body;
+// M_category.create(form).
+//     then((data) => {
+//         res.json(data);
+//     })
+//     .catch((error) => {
+//         console.log(("this is the error".error));
+//     });
