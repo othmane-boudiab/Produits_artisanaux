@@ -11,4 +11,8 @@ router.get('/app/product', (req,res, next)=>{
     console.log(error);
 })
 })
-// router.delete()
+// router.delete('/app/product/:id' , (req, res, next)=>(
+
+
+// )
+// )
