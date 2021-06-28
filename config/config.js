@@ -1,6 +1,5 @@
-require('dotenv').config()
 
-module.exports = {
+module.exports =  {
   development: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
@@ -14,6 +13,5 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     dialect: process.env.DIALECT,
-    logging: false
   }
 }

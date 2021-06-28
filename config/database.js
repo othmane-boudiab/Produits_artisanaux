@@ -9,4 +9,4 @@ const connection = new Sequelize(
   config
 )
 
-module.exports = connection;
+module.exports = connection
