@@ -1,18 +1,32 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router()
 const Product = require("../Models/productModel");
 
-router.get('/app/product', (req,res, next)=>{
+router.get('/app/product', (req,res)=>{
     Product.findAll()
-.then(product => {
+.then((product) => {
     console.log(JSON.stringify(product));
+    res.json(product)
 }).catch((error)=> {
-    //gestion erreur
     console.log(error);
 })
 })
-// router.delete('/app/product/:id' , (req, res, next)=>(
+router.get('/app/product/:id', (req,res)=>{
+    Product.findOne( { where:  { id: req.params.id }})
+.then((product) => {
+    console.log(JSON.stringify(product));
+    res.json(product)
+}).catch((error)=> {
+    console.log(error);
+})
+})
 
 
-// )
-// )
+
+
+
+
+
+
+
+module.exports = router
