@@ -10,23 +10,16 @@ router.get('/app/product', (req,res)=>{
 }).catch((error)=> {
     console.log(error);
 })
-})
+}),
 router.get('/app/product/:id', (req,res)=>{
-    Product.findOne( { where:  { id: req.params.id }})
-.then((product) => {
-    console.log(JSON.stringify(product));
-    res.json(product)
-}).catch((error)=> {
-    console.log(error);
+    const id = req.params.id
+    Product.findOne( { where: {id:id}}).
+    then((product)=>{
+        res.json(product)
+    }).catch((error)=>{
+        console.log(error);
+    })
 })
-})
 
 
-
-
-
-
-
-
-
-module.exports = router
+ module.exports = router
