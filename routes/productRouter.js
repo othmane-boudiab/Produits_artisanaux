@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router()
 const Product = require("../Models/productModel");
+// const bodyParser = require("body-parser")
 
 router.get('/app/product', (req,res)=>{
     Product.findAll()
@@ -20,13 +21,13 @@ router.get('/app/product/:id', (req,res)=>{
         console.log(error);
     })
 })
-router.post('/app/product', (req, res, next)=>{
-    let body = req.body
-    Product.create(body).then(product => {
-        console.log(JSON.stringify(product));
-        res.json(product)
+router.post('/app/product', (req, res) =>{
+    Product.create(req.body).then((newProduct) => {
+        // console.log(JSON.stringify(product));
+        res.status(201).json(newProduct)
     }).catch((error)=> {
-        console.log(error);
+        console.log(error)
+        res.json({error:error.message})
     })
 
 })
