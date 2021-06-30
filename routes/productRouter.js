@@ -51,8 +51,8 @@ router.put('/app/product/edit/:id', (req,res)=>{
     },
       {where: {id:id}}
     )
-    .then(function(rowsUpdated) {
-      res.json(rowsUpdated)
+    .then(()=>{
+      res.json({message:"your product had been updated"})
     })
     .catch((error)=>{
         console.log(error);
