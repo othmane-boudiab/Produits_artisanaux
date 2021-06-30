@@ -32,9 +32,15 @@ router.get('/:id',(req,res)=>{
 
 
 //add category
-router.post('/',(req,res)=>{
-
-})
+router.post('/new', (req,res)=>{
+    M_category.create(req.body).then((newData)=>{
+        res.status(201).json({message:"your category is add to the database"})
+    }).catch((e)=>{
+        console.log("this is the error",e)
+        res.status(500).json({error:e.message})
+    })
+} 
+  )
 
 
 // delete a category 
@@ -57,7 +63,18 @@ router.delete('/:id',(req,res)=>{
 
 
 // update a category
-router.put('/:id',(req,res)=>{
+router.put('/edit/:id',(req,res)=>{
+   const id = req.params.id
+   M_category.update({
+       Name_category:req.body.Name_category,
+       status_category:req.body.status_category
+   } , {where:{id_category:id}}).then(function(result) {
+       res.json({message:"your category is edit now"})
+   })
+   .catch((error)=>{
+       console.log(error)
+       res.status(400).json({error:error.message})
+   })
 
 })
 
