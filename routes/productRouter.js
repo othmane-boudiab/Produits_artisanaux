@@ -40,16 +40,23 @@ router.delete('/app/product/:id', (req,res)=>{
         console.log(error);
     })
 })
-router.put('/app/product/:id', (req,res)=>{
+router.put('/app/product/edit/:id', (req,res)=>{
+    const id = req.params.id
     Product.update(
-      {title: req.body.title},
-      {where: req.params.bookId}
+      {name: req.body.name,
+        image: req.body.image,
+        price: req.body.price,
+        description: req.body.description,
+        category_id_category: req.body.category_id_category,
+    },
+      {where: {id:id}}
     )
     .then(function(rowsUpdated) {
       res.json(rowsUpdated)
     })
     .catch((error)=>{
         console.log(error);
+        res.status(400).json({error})
     })
    })
 
