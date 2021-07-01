@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const sequelize = require ('sequelize')
 const db = require('./config/database')
 const model= require ('./Models/index')
+// const productController = require("./controllers/productController")
 // const cors = require('cors')
 
 // require routes
