@@ -1,42 +1,50 @@
 // require important modules
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
-const cors = require('cors')
+// require the connection (DB)
+const sequelize = require ('sequelize')
+const db = require('./config/database')
+const model= require ('./Models/index')
+// const productController = require("./controllers/productController")
+// const cors = require('cors')
 
 // require routes
-const AdminRouter = require('./routes/adminRoutes')
+// const AdminRouter = require('./routes/adminRoutes')
 // const categoriesRouter = require('./routes/catégories')
-// const ProductRouter = require('./routes/products')
+const ProductRouter = require('./routes/productRouter')
 // const ClientRouter = require('./routes/client')
 // const CommentaireRouter = require('./routes/commentaire')
 
-
-
 // create our App
 const app = express()
-const port = process.env.PORT || 2020
+const port = process.env.PORT || 5000
 
+// console.log(process.env.PORT)
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(bodyParser.urlencoded({extended: true}))
+// app.use(bodyParser.urlencoded({extended: true}))
+// app.use(bodyParser.json())
+
+
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
-
-// require the connection (DB)
-const db = require('./config/database')
-
-
+// app.use(cookieParser())
 
 // Home Page
 app.get('/', (req,res) => {
-    res.send('hello hajar')
+    res.send('hello ')
   })
+  app.use('/app', ProductRouter)
+ 
+  
+  
 
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api/v1/
-app.use('/api/v1/', AdminRouter)
+// app.use('/api/v1/', AdminRouter)
 // app.use('/api/v1/', categoriesRouter)
 // app.use('/api/v1/', ClientRouter)
 // app.use('/api/v1/', ProductRouter) // /api/v1/product

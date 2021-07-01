@@ -18,7 +18,8 @@ const client = connection.define('client',{
         email: {
             type: sequelize.STRING,
             allowNull: false, 
-            unique: true
+            unique: true,
+            isEmail: true,
         },
         password : {
             type: sequelize.STRING,
@@ -29,4 +30,3 @@ const client = connection.define('client',{
 
 module.exports= client;
 
-// console.log(client === sequelize.models.client)
