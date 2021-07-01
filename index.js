@@ -11,8 +11,9 @@ const model= require ('./Models/index')
 
 // require routes
 // const AdminRouter = require('./routes/adminRoutes')
-// const categoriesRouter = require('./routes/catégories')
-const ProductRouter = require('./routes/productRouter')
+const categoriesRouter = require('./routes/categoryRoute')
+
+// const ProductRouter = require('./routes/productRouter')
 // const ClientRouter = require('./routes/client')
 // const CommentaireRouter = require('./routes/commentaire')
 
@@ -20,13 +21,9 @@ const ProductRouter = require('./routes/productRouter')
 const app = express()
 const port = process.env.PORT || 5000
 
-// console.log(process.env.PORT)
-
-// configure app to use bodyParser()
 // this will let us get the data from a POST
-// app.use(bodyParser.urlencoded({extended: true}))
-// app.use(bodyParser.json())
-
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -34,8 +31,9 @@ app.use(bodyParser.json())
 
 // Home Page
 app.get('/', (req,res) => {
-    res.send('hello ')
+    res.send('hello')
   })
+  app.use('/app',categoriesRouter)
   app.use('/app', ProductRouter)
  
   

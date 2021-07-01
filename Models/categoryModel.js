@@ -12,7 +12,7 @@ const category = connection.define('category',{
     },
     Name_category:{
         type:DataTypes.STRING,
-        allowNull:false
+        allowNull:false 
     },
     status_category:{
         type:DataTypes.BOOLEAN,
