@@ -5,17 +5,17 @@ const controller = require('../controllers/categoryController')
 
 
 // display all categories
-router.get('/', controller.all_category)
+router.get('/categories', controller.all_category)
 
 //display one category
-router.get('/:id',controller.category)
+router.get('/category/:id',controller.category)
 
 //add category
-router.post('/new', controller.Add_category)
+router.post('/newCategory', controller.Add_category)
 
 
 // delete a category 
-router.delete('/:id',controller.delete_category)
+router.delete('/delete/:id',controller.delete_category)
 
 
 // update a category

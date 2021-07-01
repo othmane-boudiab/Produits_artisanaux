@@ -30,9 +30,9 @@ app.use(bodyParser.json())
 
 // Home Page
 app.get('/', (req,res) => {
-    res.send('hello ')
+    res.send('hello')
   })
-  app.use('/categories',categoriesRouter)
+  app.use('/app',categoriesRouter)
 
 
 // REGISTER OUR ROUTES -------------------------------
