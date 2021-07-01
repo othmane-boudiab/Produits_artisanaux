@@ -1,11 +1,14 @@
 const connection = require("../config/database")
-const sequelize =  require("sequelize")
+const sequelize =  require("sequelize");
+const { json } = require("body-parser");
 
 const product = connection.define('product',{
     id:{
         type: sequelize.INTEGER,
         autoIncrement: true,
-        primaryKey : true
+        primaryKey : true,
+        allowNull: false,
+        field: 'product_id',
     },
     name:{
         type: sequelize.STRING,
@@ -27,3 +30,4 @@ const product = connection.define('product',{
 )
 
 module.exports= product;
+

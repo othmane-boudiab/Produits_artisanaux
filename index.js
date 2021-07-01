@@ -1,63 +1,39 @@
 // require important modules
 require('dotenv').config()
+const express = require('express');
 const bodyParser = require('body-parser')
-const express = require('express')
-// const bodyParser = require('body-parser')
+const Sequelize = require ('sequelize')
 // require the connection (DB)
 const db = require('./config/database')
-const sequelize = require ('sequelize')
-const path = require('path')
-// const cors = require('cors')
+const model= require('./Models/index')
+const model1= require('./Models/adminModel')
 
-// require routes
-const AdminRouter = require('./routes/adminRoutes')
-// const categoriesRouter = require('./routes/catégories')
-// const ProductRouter = require('./routes/products')
-// const ClientRouter = require('./routes/client')
-const CommentRouter = require('./routes/commentRouter')
-
-
+// require route
+const houda = require ("../Produits_artisanaux/routes/commentRouter")
 
 // create our App
 const app = express()
-const port = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000
+//Database Connection
 
-// console.log(process.env.PORT)
-
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-app.use(bodyParser.urlencoded({extended: true}))
+// const path = require('path')
+app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
-
-
-// require the connection (DB)
-
-const Sequelize  = require('sequelize')
-
-
+// require routes
+// const AdminRouter = require('./routes/adminRoutes')
+// const categoriesRouter = require('./routes/catégories')
+// const ProductRouter = require('./routes/productRouter')
+// const ClientRouter = require('./routes/client')
+// const commentRouter = require('./routes/commentRouter')
+// const commentcontroller = require('./controllers/commentaireController')
 
 // Home Page
 app.get('/', (req,res) => {
-    res.send('hello')
-  })
-
-app.use('/comments',commentRouter)
-
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api/v1/
-app.use('/api/v1/', AdminRouter)
-// app.use('/api/v1/', categoriesRouter)
-// app.use('/api/v1/', ClientRouter)
-// app.use('/api/v1/', ProductRouter) // /api/v1/product
-app.use('/api/v1/', CommentaireRouter)
-
-app.use(function(req,res,next){
-  next(createError(404))
+  res.send('hello')
 })
 
+app.use('/app', houda)
 
-
-// Testing the connection
 db
   .authenticate()
   .then(() => {
@@ -67,6 +43,13 @@ db
     console.error("Unable to connect to the database:", err)
   })
 
-// START THE SERVER
-app.listen(port, () => console.log(`server run on port ${port}`))
-// Sequelize.models.AdminModel
+db.sync().then(() => {
+  app.listen(PORT, console.log(`Server started on port ${PORT}`));
+}).catch(err => console.log("Error: " + err));
+
+
+
+
+
+
+
