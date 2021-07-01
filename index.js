@@ -36,7 +36,7 @@ app.use(bodyParser.json())
 app.get('/', (req,res) => {
     res.send('hello ')
   })
-  app.use('/', ProductRouter)
+  app.use('/app', ProductRouter)
  
   
   
