@@ -13,6 +13,7 @@ const model= require ('./Models/index')
 // const AdminRouter = require('./routes/adminRoutes')
 // const categoriesRouter = require('./routes/catégories')
 const ProductRouter = require('./routes/productRouter')
+const adminProductRouter = require('./routes/Admin/adminProductRouter')
 // const ClientRouter = require('./routes/client')
 // const CommentaireRouter = require('./routes/commentaire')
 
@@ -36,7 +37,8 @@ app.use(bodyParser.json())
 app.get('/', (req,res) => {
     res.send('hello ')
   })
-  app.use('/app', ProductRouter)
+  app.use('/app', ProductRouter);
+  app.use('/app', adminProductRouter)
  
   
   
