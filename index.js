@@ -12,6 +12,7 @@ const categoriesRouter = require('./routes/categoryRoute')
 const commentRouter = require('./routes/commentRouter')
 
 const ProductRouter = require('./routes/productRouter')
+const adminCategoryRouter = require('./routes/Admin/adminCategoryRouter')
 const adminProductRouter = require('./routes/Admin/adminProductRouter')
 // const ClientRouter = require('./routes/client')
 
@@ -30,7 +31,7 @@ app.use(bodyParser.json())
 app.get('/', (req,res) => {
     res.send('hello')
   })
-  app.use('/app', ProductRouter);
+  app.use('/app' , adminCategoryRouter )
   app.use('/app', adminProductRouter)
  
   
