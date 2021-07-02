@@ -13,7 +13,7 @@ const commentRouter = require('./routes/commentRouter')
 
 const ProductRouter = require('./routes/productRouter')
 const adminProductRouter = require('./routes/Admin/adminProductRouter')
-// const ClientRouter = require('./routes/client')
+const ClientRouter = require('./routes/clientRoute')
 
 // create our App
 const app = express()
@@ -49,6 +49,7 @@ app.get('/', (req,res) => {
   app.use('/app',categoriesRouter)
   app.use('/app', ProductRouter)
   app.use('/app', commentRouter)
+  app.use('/app', ClientRouter)
 
 db
   .authenticate()

@@ -8,7 +8,7 @@ const product = connection.define('product',{
         autoIncrement: true,
         primaryKey : true,
         allowNull: false,
-        field: 'product_id',
+        
     },
     name:{
         type: sequelize.STRING,

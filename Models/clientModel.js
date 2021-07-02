@@ -7,7 +7,7 @@ const client = connection.define('client',{
             autoIncrement: true,
             primaryKey : true,
             allowNull: false,
-            field: 'client_id',
+            // field: 'client_id',
         },
         firstName:{
             type: sequelize.STRING,
@@ -25,7 +25,7 @@ const client = connection.define('client',{
         },
         password : {
             type: sequelize.STRING,
-            allowNull: false },
+            allowNull: false,},
         },
         {tableName: 'client', timestamps: false, underscored: true}
     )
