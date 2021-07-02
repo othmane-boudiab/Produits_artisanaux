@@ -6,6 +6,8 @@ const client = connection.define('client',{
             type: sequelize.INTEGER,
             autoIncrement: true,
             primaryKey : true,
+            allowNull: false,
+            field: 'client_id',
         },
         firstName:{
             type: sequelize.STRING,
