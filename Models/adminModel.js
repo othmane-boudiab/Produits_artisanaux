@@ -1,5 +1,6 @@
-const sequelize = require('sequelize')
-const connection = require('../config/database')
+const connection = require("../config/database")
+const sequelize =  require("sequelize")
+
 const admin = connection.define('admin', {
         id_Admin :{ 
             type: sequelize.INTEGER,

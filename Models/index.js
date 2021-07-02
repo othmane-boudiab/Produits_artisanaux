@@ -56,10 +56,10 @@ Category.hasMany(Product)
 Product.belongsTo(Category)
 
 
-connection.sync({force:false}).then(()=>{console.log("these tables had been created")}).catch((error)=>{console.log(error)})
 
 // Epicerie Sucrée Boissons Cosmétiques et bien être
 Product.create({name:"oil argan", image:"https://im0-tub-com.yandex.net/i?id=d4756625248412b6a89dc4fb04440321&n=13", price:100.34 , description:"Retrouver les moyens de paiements de vos achats en ligne. ... La sécurité des paiements avec l'e-Boutique repose sur le système de paiement de Maroc Télécommerce, certifié par le Centre Comment se fait le paiement à la livraison ?"})
-Admin.create({id_Admin:"1", fullname:"houda", email:"houda@gmail.com" , password:"houda"})
-
-module.exports= Comment
+connection.sync({force:false}).then(()=>{console.log("these tables had been created")}).catch((error)=>{console.log(error)})
+// add data to category
+// Category.create({Name_category:"slippers",status_category:"true"})
+module.exports = Comment

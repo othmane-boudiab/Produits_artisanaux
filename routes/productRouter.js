@@ -1,14 +1,14 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router()
 const Product = require("../Models/productModel");
+// const bodyParser = require("body-parser")
+const productController = require('../controllers/productController')
 
-router.get('/app/product', (req,res, next)=>{
-    Product.findAll()
-.then(product => {
-    console.log(JSON.stringify(product));
-}).catch((error)=> {
-    //gestion erreur
-    console.log(error);
-})
-})
-// router.delete()
+router.get('/products', productController.findALLProduct),
+router.get('/products/:id', productController.findOneProduct)
+router.post('/products', productController.creatProduct)
+router.delete('/products/:id', productController.deleteProduct)
+router.put('/products/edit/:id', productController.editProduct)
+
+
+ module.exports = router

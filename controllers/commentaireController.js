@@ -12,7 +12,7 @@ InsertComment = function (req, res) {
     })
 }
 getComments = function (req, res) {
-    adminModel.findAll().then((data) => {
+    commentModel.findAll().then((data) => {
         res.json(data)
     }).catch((error) => {
         console.log("this is the".error)
@@ -74,85 +74,3 @@ module.exports = {
     deleteComment : deleteComment
 }
 
-
-// const express = require('express')
-// const router = express.Router()
-// const commentController = require('../controllers/commentaireController')
-// const Comment = require('../Models/index')
-// /*GET la page commentRouter*/
-// router.get('/app/comment', function(req,res,next){
-//     res.render('commentRouter')
-// })
-// router.route('/insert').post(commentController.InsertComment)
-// router.route('/comments').get(commentController.getComments)
-// router.route('/comment/:commentid/comments').get(commentController.getOneComment)
-// router.put('/post',commentController.updateComment)
-// router.delete('/delete',commentController.deleteComment)
-// module.exports = router
-
-// var commentaiController = {
-//     addComment: addComment,
-//     findComments: findComments,
-//     findCommentById: findCommentById,
-//     updateComment: updateComment,
-//     deleteById: deleteById
-// }
-
-// function addComment (req, res) {
-//     let comm = req.body;
-//     Comment.create(comm).
-//         then((data) => {
-//             res.send(data);
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// }
-
-// function findCommentById(req, res) {
-//     Comment.findById(req.params.id).
-//         then((data) => {
-//             res.send(data);
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// }
-
-// function deleteById(req, res) {
-//     Comment.deleteById(req.params.id).
-//         then((data) => {
-//             res.status(200).json({
-//                 message: "Comment deleted successfully",
-//                 gig: data
-//             })
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// }
-
-// function updateComment(req, res) {
-//     Comment.updateComment(req.body, req.params.id).
-//         then((data) => {
-//             res.status(200).json({
-//                 message: "Comment updated successfully",
-//                 comment: data
-//             })
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// }
-
-// function findComments(req, res) {
-//     Comment.findAll().
-//         then((data) => {
-//             res.json(data);
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// }
-
-// module.exports = commentaiController;

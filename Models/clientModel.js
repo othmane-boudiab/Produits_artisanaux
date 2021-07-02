@@ -32,4 +32,3 @@ const client = connection.define('client',{
 
 module.exports= client;
 
-// console.log(client === sequelize.models.client)
