@@ -1,4 +1,4 @@
-const connection = require("../config/database.js")
+const connection = require("../config/database")
 const sequelize =  require("sequelize")
 
 const admin = connection.define('admin', {
@@ -22,8 +22,10 @@ const admin = connection.define('admin', {
             type:sequelize.STRING,
             allowNull: false
         }
-    }, {tableName: 'admin', timestamps: false, underscored: true});
+    },
+    {tableName: 'admin', timestamps: false, underscored: true}
+)
 
-module.exports = admin;
+module.exports = admin
 
-  
+
