@@ -14,6 +14,8 @@ const commentRouter = require('./routes/commentRouter')
 const ProductRouter = require('./routes/productRouter')
 const adminCategoryRouter = require('./routes/Admin/adminCategoryRouter')
 const adminProductRouter = require('./routes/Admin/adminProductRouter')
+const adminCommentRouter = require('./routes/Admin/adminCommentRouter')
+
 // const ClientRouter = require('./routes/client')
 
 // create our App
@@ -33,7 +35,7 @@ app.get('/', (req,res) => {
   })
   app.use('/app' , adminCategoryRouter )
   app.use('/app', adminProductRouter)
- 
+  app.use('/app', adminCommentRouter)
   
   
 
@@ -63,6 +65,7 @@ db
 db.sync().then(() => {
   app.listen(PORT, console.log(`Server started on port ${PORT}`));
 }).catch(err => console.log("Error: " + err));
+
 
 
 
