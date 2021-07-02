@@ -32,8 +32,7 @@ app.use(bodyParser.json())
 app.get('/', (req,res) => {
     res.send('hello')
   })
-  app.use('/app', ProductRouter)
-  app.use('/app', commentRouter)
+  app.use('/app', ProductRouter);
   app.use('/app', adminProductRouter)
   app.use('/app', adminCommentRouter)
   
@@ -49,6 +48,9 @@ app.get('/', (req,res) => {
 // app.use('/api/v1/', CommentaireRouter)
 
 
+  app.use('/app',categoriesRouter)
+  app.use('/app', ProductRouter)
+  app.use('/app', commentRouter)
 
 db
   .authenticate()
