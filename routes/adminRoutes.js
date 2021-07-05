@@ -1,3 +1,8 @@
+
+
+
+
+
 const express = require('express')
 const router = express.Router()
 const {adminModel} = require('../Models/adminModel')
@@ -5,7 +10,7 @@ const {adminModel} = require('../Models/adminModel')
 
 
 
-Admin page route.
+// Admin page route.
 router
     .route('/admin')
         .get((req,res) => {
@@ -16,7 +21,3 @@ router
 
 
 module.exports = router;
-
-
-
-

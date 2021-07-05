@@ -1,4 +1,4 @@
-const connection = require("../config/database")
+const connection = require("../config/database.js")
 const sequelize =  require("sequelize")
 
 const admin = connection.define('admin', {

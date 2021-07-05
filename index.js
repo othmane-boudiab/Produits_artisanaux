@@ -6,37 +6,39 @@ const bodyParser = require('body-parser')
 const sequelize = require ('sequelize')
 const db = require('./config/database')
 const model= require ('./Models/index')
+// const productController = require("./controllers/productController")
 // const cors = require('cors')
 
 // require routes
 // const AdminRouter = require('./routes/adminRoutes')
-// const categoriesRouter = require('./routes/catégories')
+const categoriesRouter = require('./routes/categoryRoute')
+
+const admincategoriesRouter = require('./routes/admin/admincategory')
+
 const ProductRouter = require('./routes/productRouter')
-// const ClientRouter = require('./routes/client')
+const clientRouter = require('./routes/clientRoute')
 // const CommentaireRouter = require('./routes/commentaire')
 
 // create our App
 const app = express()
 const port = process.env.PORT || 5000
 
-// console.log(process.env.PORT)
-
-// configure app to use bodyParser()
 // this will let us get the data from a POST
-// app.use(bodyParser.urlencoded({extended: true}))
-// app.use(bodyParser.json())
-
-
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+
+// app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.json())
 // app.use(cookieParser())
 
 // Home Page
 app.get('/', (req,res) => {
-    res.send('hello ')
+    res.send('hello')
   })
-  app.use('/', ProductRouter)
- 
+  app.use('/app',categoriesRouter)
+  app.use('/app',ProductRouter)
+  app.use('/app',clientRouter)
+ app.use('/app/admin' , admincategoriesRouter)
   
   
 
