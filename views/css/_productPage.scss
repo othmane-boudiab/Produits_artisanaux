@@ -1,0 +1,14 @@
+.panel {
+    
+    &-body {
+
+        .pro-img-list {
+
+            .sub-img {
+                // width:50% !important;
+                flex-basis: 24%;
+                // min-width: 5rem;
+            }
+        }
+    }
+}

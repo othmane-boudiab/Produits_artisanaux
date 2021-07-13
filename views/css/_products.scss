@@ -1,0 +1,42 @@
+
+
+.bg-red-color {
+    background-color: $red-color;
+}
+
+.btn-green-color {
+    background-color: $green-color;
+}
+
+.btn-green-color:hover {
+    background-color: #0aadad;
+}
+
+.product {
+
+    .img-product {
+        background-color: $darck-color;
+    }
+    .info-product {
+
+    }
+    .card-img-overlay {
+
+        
+        .category {
+            top: 10% !important;
+            left: 20% !important;
+        }
+        .btn-cart {
+            // top: 69% !important;
+            // left: 50% !important;
+            // opacity: 0;
+            width: 100%;
+            z-index: 10;
+            // right: 10% !important;
+        }
+        .btn-cart:hover {
+            // opacity: 1;
+        }
+    }
+}
